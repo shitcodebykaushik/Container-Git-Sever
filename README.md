@@ -8,3 +8,5 @@
 
 - The Orchestrator (Docker Compose): Ties these two services together so they can talk to each other over a private internal network while staying isolated from your host system.
 
+# Licence
+- Free to use 
