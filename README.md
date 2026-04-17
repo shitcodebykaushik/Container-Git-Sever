@@ -1,25 +1,10 @@
-# Dockerfile 
-- Defines the container image for the git server 
-- Even the gitea/gitea or gitlab/gitlab-ce  as the base image 
-# Docker-compose-yml 
-- Orchestrate the git serv and other services 
-- Simplify the multi-contianer deplyomer 
-# Config 
-- Stores configuration files for the git server 
-
-# data 
-- Persistent storage for repositories and user data 
-- Mounted  as a volumner to ensure data is not lost when constiners restart .
-
-# Scripts 
-- Contianers helper scripts for common task 
- - setup.sh - Automation task 
- - backup.sh - Backup up repositores and configuration 
- - restore.sh - Restores data from backup 
+- The summary of this project is that i have built a private, containerized Git infrastructure that gives me full ownership over your source code. Instead of relying on a third-party service like GitHub, I have  created a "Mini-GitHub" that runs on my own hardware or server.
 
 
-# nginx 
-  - Stores environment variable 
-  - Keep sensitive data out of version control 
+# Core 
+- The Engine (Gitea): A lightweight Git server written in Go. It provides the web interface, repository management, and user authentication.
 
-  
+- The Guard (Nginx): Acts as a reverse proxy. It sits in front of the Git server to handle web traffic, manage SSL certificates (HTTPS), and hide the backend complexity from the user.
+
+- The Orchestrator (Docker Compose): Ties these two services together so they can talk to each other over a private internal network while staying isolated from your host system.
+
