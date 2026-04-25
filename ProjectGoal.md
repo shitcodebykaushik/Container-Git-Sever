@@ -33,4 +33,5 @@
   - Stores environment variable 
   - Keep sensitive data out of version control 
 
-  
+  docker-compose down
+docker-compose up -d
